@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Analisador de perfil do GitHub</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>Analisador de perfil do GitHub</h1>
+      <p class="subtitulo">
+        Digite um usuário e veja linguagens, estrelas e repositórios.
+      </p>
+
+      <div class="busca">
+        <input
+          id="input-usuario"
+          type="text"
+          placeholder="jorgemeert"
+          aria-label="Nome de usuário do GitHub"
+          autocomplete="off"
+        />
+        <button type="button" id="buscar">Analisar</button>
+      </div>
+
+      <p id="mensagem" class="mensagem" role="status" hidden></p>
+
+      <section id="resultado" hidden>
+        <div class="perfil">
+          <img id="perfil-foto" src="" alt="Foto do perfil" />
+          <div>
+            <h2 id="perfil-nome"></h2>
+            <p id="perfil-bio"></p>
+            <p id="perfil-local" class="local"></p>
+          </div>
+        </div>
+
+        <div class="numeros">
+          <div class="numero">
+            <span>Repositórios</span>
+            <strong id="num-repos">0</strong>
+          </div>
+          <div class="numero">
+            <span>Seguidores</span>
+            <strong id="num-seguidores">0</strong>
+          </div>
+          <div class="numero">
+            <span>Total de estrelas</span>
+            <strong id="num-estrelas">0</strong>
+          </div>
+          <div class="numero">
+            <span>Linguagem mais usada</span>
+            <strong id="num-linguagem">-</strong>
+          </div>
+        </div>
+
+        <section class="bloco">
+          <h3>Linguagens usadas</h3>
+          <div id="lista-linguagens"></div>
+        </section>
+
+        <section class="bloco">
+          <h3>Repositórios em destaque</h3>
+          <ul id="lista-repos" class="repos"></ul>
+        </section>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

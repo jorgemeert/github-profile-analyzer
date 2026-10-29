@@ -1,0 +1,254 @@
+:root {
+  --fundo: #f3f5f7;
+  --superficie: #ffffff;
+  --texto: #1b2430;
+  --texto-suave: #5f6b78;
+  --borda: #dde2e8;
+  --destaque: #2da44e;
+  --destaque-escuro: #1f7a39;
+  --erro: #b42318;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--fundo);
+  color: var(--texto);
+  font-family:
+    system-ui,
+    -apple-system,
+    'Segoe UI',
+    sans-serif;
+  line-height: 1.5;
+}
+
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 40px 20px 60px;
+}
+
+h1 {
+  margin: 0 0 6px;
+  font-size: clamp(1.6rem, 5vw, 2.2rem);
+  line-height: 1.2;
+}
+
+.subtitulo {
+  margin: 0 0 24px;
+  color: var(--texto-suave);
+}
+
+/* Busca */
+.busca {
+  display: flex;
+  gap: 8px;
+}
+
+.busca input {
+  flex: 1;
+  min-width: 0;
+  padding: 12px 14px;
+  font: inherit;
+  background: var(--superficie);
+  border: 1px solid var(--borda);
+  border-radius: 8px;
+}
+
+.busca button {
+  padding: 12px 20px;
+  font: inherit;
+  font-weight: 600;
+  color: #fff;
+  background: var(--destaque);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.busca button:hover {
+  background: var(--destaque-escuro);
+}
+
+.busca input:focus-visible,
+.busca button:focus-visible {
+  outline: 3px solid var(--destaque);
+  outline-offset: 2px;
+}
+
+/* Mensagens (o JS escreve aqui) */
+.mensagem {
+  margin: 14px 0 0;
+  color: var(--texto-suave);
+}
+
+.mensagem.erro {
+  color: var(--erro);
+}
+
+#resultado {
+  margin-top: 28px;
+}
+
+/* Cartões */
+.perfil,
+.numero,
+.bloco {
+  background: var(--superficie);
+  border: 1px solid var(--borda);
+  border-radius: 8px;
+}
+
+.perfil {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  padding: 18px;
+}
+
+.perfil img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.perfil h2 {
+  margin: 0;
+  font-size: 1.3rem;
+}
+
+.perfil p {
+  margin: 4px 0 0;
+}
+
+.local {
+  color: var(--texto-suave);
+  font-size: 0.9rem;
+}
+
+/* Números */
+.numeros {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.numero {
+  padding: 14px;
+}
+
+.numero span {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--texto-suave);
+}
+
+.numero strong {
+  font-size: 1.5rem;
+}
+
+/* Blocos de linguagens e repositórios */
+.bloco {
+  margin-top: 12px;
+  padding: 18px;
+}
+
+.bloco h3 {
+  margin: 0 0 12px;
+  font-size: 1.05rem;
+}
+
+/* Linhas de linguagem (criadas pelo JS) */
+.lang-linha {
+  display: grid;
+  grid-template-columns: 100px 1fr 36px;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+}
+
+.lang-trilho {
+  height: 10px;
+  background: var(--fundo);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.lang-barra {
+  height: 100%;
+  background: var(--destaque);
+}
+
+.lang-qtd {
+  text-align: right;
+  color: var(--texto-suave);
+}
+
+/* Itens de repositório (criados pelo JS) */
+.repos {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.repo {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 10px 0;
+  border-top: 1px solid var(--borda);
+}
+
+.repo:first-child {
+  border-top: none;
+  padding-top: 0;
+}
+
+.repo a {
+  font-weight: 600;
+  color: var(--destaque-escuro);
+  text-decoration: none;
+}
+
+.repo a:hover {
+  text-decoration: underline;
+}
+
+.repo p {
+  margin: 2px 0 0;
+  font-size: 0.9rem;
+  color: var(--texto-suave);
+}
+
+.repo-info {
+  flex-shrink: 0;
+  font-size: 0.9rem;
+  color: var(--texto-suave);
+  text-align: right;
+}
+
+@media (max-width: 520px) {
+  .busca,
+  .perfil,
+  .repo {
+    flex-direction: column;
+  }
+
+  .perfil {
+    text-align: center;
+  }
+
+  .repo-info {
+    text-align: left;
+  }
+
+  .lang-linha {
+    grid-template-columns: 80px 1fr 30px;
+  }
+}
